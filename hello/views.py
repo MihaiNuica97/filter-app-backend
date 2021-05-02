@@ -1,9 +1,11 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from django.shortcuts import render
 
+nltk.data.path.append("/home/nltk_data")
 
 def hello(request):
     print("Handling request to home page.")
@@ -11,7 +13,7 @@ def hello(request):
 
 
 @csrf_exempt
-def profile(request):
+def filter_this(request):
     if request.method == 'POST':
         json_data = json.loads(request.body)  # request.raw_post_data w/ Django < 1.4
         data = word_tokenize(json_data['content'])
