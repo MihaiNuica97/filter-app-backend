@@ -58,7 +58,7 @@ def filter_this(request):
             for word in pruned_sentence:
                 # print("Similarity for word: ", word)
                 try:
-                    synonyms = wordnet.synsets(word)
+                    synonyms = wordnet.synsets(word)[:5]
                 except:
                     continue
                 for syn in synonyms:
