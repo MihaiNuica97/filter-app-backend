@@ -52,7 +52,7 @@ def filter_this(request):
                 print(i, "Could not be pruned!")
                 print()
         heuristic = 0.13
-        synsets = ['dog.n.01', 'game.n.01', 'cat.n.01']
+        synsets = ['dog.n.01', 'game.n.01', 'cat.n.01',"jewel.n.01","sport.n.01","food.n.01"]
         filters = [wordnet.synset(w) for w in synsets]
         for f in filters:
             for word in pruned_sentence:
