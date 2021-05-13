@@ -51,14 +51,14 @@ def filter_this(request):
             except:
                 print(i, "Could not be pruned!")
                 print()
-        heuristic = 0.13
-        synsets = ['dog.n.01', 'game.n.01', 'cat.n.01',"jewel.n.01","sport.n.01","food.n.01"]
-        filters = [wordnet.synset(w) for w in synsets]
+        heuristic = 0.3
+        lemmas = ['dog.n.01', 'cat.n.01', 'play.n.01', 'animal.n.01', 'play.v.01', 'game.n.01',"jewel.n.01","sport.n.01","food.n.01"]
+        filters = [wordnet.synset(w) for w in lemmas]
         for f in filters:
             for word in pruned_sentence:
                 # print("Similarity for word: ", word)
                 try:
-                    synonyms = wordnet.synsets(word)[:5]
+                    synonyms = wordnet.synsets(word)[:2]
                 except:
                     continue
                 for syn in synonyms:
